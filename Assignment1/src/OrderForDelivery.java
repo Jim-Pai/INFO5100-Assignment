@@ -40,7 +40,7 @@ public class OrderForDelivery {
 		Carrier carrier = new Carrier();
 		jim.makePhoneCall(carrier);
 		jim.orderDelivery(goods);
-		carrier.carryGoods();
+		carrier.carryGoods(goods);
 		carrier.deliver(jim.address);
 		
 		Money money =  jim.payMoneyToCarrier(carrier);
@@ -59,7 +59,7 @@ class Consumer{
 
 class Carrier{
 	Goods[] goods;
-	void carryGoods(){}
+	void carryGoods(Goods[] goods){}
 	void deliver(String address){}
 	void acceptMoneyFromConsumer(Consumer c, Money m){}
 }
