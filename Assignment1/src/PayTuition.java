@@ -42,7 +42,7 @@ class Student{
 	String password;
 	void loginMyNEU(myNEUWebsite neu){}
 	void makePaymentOrder(){}
-	Money transferMoneyToNEU(myNEUWebsite neu){Money m = new Money(); return m;}
+	Money transferMoneyToNEU(myNEUWebsite neu){}
 	
 }
 
