@@ -6,7 +6,7 @@ Description : A tourist wants to book a house on Airbnb app.
 Objects (with States and behaviors) :
 	Object : Tourist
 		State : name, location, date
-		Behavior : loginAirbnb(), findTheHouseInterestedIn(), bookHouse(), payMoneyToHouseholder()
+		Behavior : loginAirbnb(), SetFilterCondition(), findTheHouseInterestedIn(), bookHouse(), payMoneyToHouseholder()
 
 	Object : Airbnb app
 		State : Collection of houses
@@ -30,11 +30,14 @@ public class BookAirbnb {
 	public static void main(String[] args) {
 		Tourist jim = new Tourist();
 		jim.name = "Jim";
-		jim.location = "Seattle";
-		jim.date = "09/13/2016";
 		
 		Airbnb airbnb = new Airbnb();
 		jim.loginAirbnb(airbnb);
+		
+		String location = "Seattle";
+		String date = "09/13/2016";
+		jim.SetFilterCondition(location, date);
+		
 		House[] houses = airbnb.displayAvailableHouse();
 		House houseInterestedIn = jim.findTheHouseInterestedIn(houses);
 		jim.bookHouse(houseInterestedIn);
@@ -48,9 +51,8 @@ public class BookAirbnb {
 
 class Tourist{
 	String name;
-	String location;
-	String date;
 	void loginAirbnb(Airbnb air){}
+	void SetFilterCondition(String location, String date){}
 	House findTheHouseInterestedIn(House[] house){}
 	void bookHouse(House house){}
 	Money payMoneyToHouseholder(Householder hh){}
