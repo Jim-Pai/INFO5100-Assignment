@@ -6,11 +6,11 @@ Description : A tourist is trying to find the cheapest flight to LA.
 Objects (with States and behaviors) :
 	Object : Tourist
 		State : name
-		Behavior : visitFlightCompareWebsite(), setFilterCondition(), findCheapestFlight(), 
+		Behavior : visitFlightCompareWebsite(), findCheapestFlight(), 
 
 	Object : FlightCompareWebsite
 		State : Collection of flights
-		Behavior : displayAvailableFlight()
+		Behavior : setFilterCondition(), displayAvailableFlight()
 
 	Object : Flight
 		State : price, departureTime, departureLocation, arrivalTime, arrivalLocation
@@ -32,7 +32,7 @@ public class TravelToLA {
 		String departureLocation = "Taiwan";
 		String arrivalTime = "09/02/2016";
 		String arrivalLocation = "LA";
-		jim.setFilterCondition(departureTime, departureLocation, arrivalTime, arrivalLocation);
+		googleflight.setFilterCondition(departureTime, departureLocation, arrivalTime, arrivalLocation);
 		Flight[] flights = googleflight.displayAvailableFlight();
 		Flight cheapestFlight = jim.findCheapestFlight(flights);
 	}
@@ -42,12 +42,12 @@ public class TravelToLA {
 class Tourist{
 	String name;
 	void visitFlightCompareWebsite(FlightCompareWebsite fcw){}
-	void setFilterCondition(String departureTime, String depatureLocation, String arrivalTime, String arrivalLocation){}
 	Flight findCheapestFlight(Flight[] flights){}
 }
 
 class FlightCompareWebsite{
 	Flight[] flights;
+	void setFilterCondition(String departureTime, String depatureLocation, String arrivalTime, String arrivalLocation){}
 	Flight[] displayAvailableFlight(){}
 }
 
