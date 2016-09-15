@@ -9,7 +9,7 @@ Objects (with States and behaviors) :
 		Behavior : visitFlightCompareWebsite(), findCheapestFlight(), 
 
 	Object : FlightCompareWebsite
-		State : Collection of flights
+		State : Collection of flights, departureTime, departureLocation, arrivalLocation
 		Behavior : setFilterCondition(), displayAvailableFlight()
 
 	Object : Flight
@@ -28,11 +28,10 @@ public class TravelToLA {
 		FlightCompareWebsite googleflight = new FlightCompareWebsite();
 		jim.visitFlightCompareWebsite(googleflight);
 		
-		String departureTime = "09/01/2016";
+		String departureTime = "09/02/2016";
 		String departureLocation = "Taiwan";
-		String arrivalTime = "09/02/2016";
 		String arrivalLocation = "LA";
-		googleflight.setFilterCondition(departureTime, departureLocation, arrivalTime, arrivalLocation);
+		googleflight.setFilterCondition(departureTime, departureLocation, arrivalLocation);
 		Flight[] flights = googleflight.displayAvailableFlight();
 		Flight cheapestFlight = jim.findCheapestFlight(flights);
 	}
@@ -47,7 +46,8 @@ class Tourist{
 
 class FlightCompareWebsite{
 	Flight[] flights;
-	void setFilterCondition(String departureTime, String depatureLocation, String arrivalTime, String arrivalLocation){}
+	String departureTime, depatureLocation, arrivalLocation;
+	void setFilterCondition(String departureTime, String depatureLocation, String arrivalLocation){}
 	Flight[] displayAvailableFlight(){}
 }
 
