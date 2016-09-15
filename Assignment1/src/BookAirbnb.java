@@ -9,7 +9,7 @@ Objects (with States and behaviors) :
 		Behavior : loginAirbnb(), findTheHouseInterestedIn(), bookHouse(), payMoneyToHouseholder()
 
 	Object : Airbnb app
-		State : Collection of houses
+		State : Collection of houses, location, date
 		Behavior : SetFilterCondition(), displayAvailableHouse(), , getCommissionFromHouseholder()
 		
 	Object : House
@@ -61,6 +61,7 @@ class Tourist{
 
 class Airbnb{
 	House[] houses;
+	String location, date;
 	void SetFilterCondition(String location, String date){}
 	House[] displayAvailableHouse(){}
 	void getCommissionFromHouseholder(Householder hh){}
