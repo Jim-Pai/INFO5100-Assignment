@@ -12,6 +12,9 @@ Objects (with States and behaviors) :
 		State :	departureLocation, arrivalLocation, estimatedTime
 		Behavior : setUpLocation(), displayShortestPath()
 	
+	Object : Road
+		State : name
+	
 	Object : Car
 		State : type, color 
 	
@@ -28,11 +31,11 @@ public class DriveHome {
 		String departureLocation = "School";
 		String arrivalLocation = "Home";
 		googlemap.setUpLocation(departureLocation, arrivalLocation);
-		googlemap.displayShortestPath();
+		Road[] roads = googlemap.displayShortestPath();
 		Car car = new Car();
 		car.brand = "Toyota";
 		car.color = "Silver";
-		jim.driveCarToDestination(car, arrivalLocation);
+		jim.driveCarToDestination(car, roads, arrivalLocation);
 	}
 
 }
@@ -40,14 +43,18 @@ public class DriveHome {
 class Student{
 	String name;
 	void openGoogleMap(GoogleMap gm){}
-	void driveCarToDestination(Car car, String destination){}
+	void driveCarToDestination(Car car, Road[] path , String destination){}
 }
 
 class GoogleMap{
 	String departureLocation, arrivalLocation;
 	int estimatedTime;
 	void setUpLocation(String departureLocation, String arrivalLocation){}
-	void displayShortestPath(){}
+	Road[] displayShortestPath(){}
+}
+
+class Road{
+	String name;
 }
 
 class Car{
