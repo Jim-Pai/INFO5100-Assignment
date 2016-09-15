@@ -43,7 +43,6 @@ class Student{
 	void loginMyNEU(myNEUWebsite neu){}
 	void makePaymentOrder(){}
 	Money transferMoneyToNEU(myNEUWebsite neu){}
-	
 }
 
 class myNEUWebsite{
