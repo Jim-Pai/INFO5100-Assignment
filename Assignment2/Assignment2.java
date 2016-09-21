@@ -26,22 +26,22 @@ public class Assignment2 {
 		int age = person.age;
 		boolean gender = person.gender;
 		
-		if(age <= 0){
+		if(age < 0){
 			System.out.println("You are unborn.");
 		}
-		else if(age < 1){
+		else if(age <= 1){
 			System.out.println("Infant.");
 		}
-		else if(age >= 1 && age < 3){
+		else if(age > 1 && age <= 3){
 			System.out.println("Toddler.");
 		}
-		else if(age >= 3 && age < 5){
+		else if(age > 3 && age <= 5){
 			System.out.println("Pre Schooler.");
 		}
-		else if(age >= 5 && age < 6 && gender){
+		else if(age > 5 && age <= 6 && gender){
 			System.out.println("KG Girl.");
 		}
-		else if(age >= 5 && age < 6 && !gender){
+		else if(age > 5 && age <= 6 && !gender){
 			System.out.println("KG Boy.");
 		}
 		else{
