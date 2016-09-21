@@ -351,7 +351,7 @@ public class Assignment2 {
 ////////////// addDigits
 		System.out.println("Please enter a number(Add Digits) : ");
 		num = scanner.nextInt();
-		System.out.println("The sum of all digits is : " + caseTest.addDigits(num));			
+		System.out.println("The result is : " + caseTest.addDigits(num));			
 		System.out.println("\n===========================================================\n");
 ////////////// isUgly
 		System.out.println("Please enter a number(Ugly Number) : ");
