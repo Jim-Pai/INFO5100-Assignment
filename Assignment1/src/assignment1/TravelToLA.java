@@ -1,3 +1,4 @@
+package assignment1;
 /*
 
 Scenario : Travelling to LA

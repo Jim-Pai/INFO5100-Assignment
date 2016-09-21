@@ -1,3 +1,4 @@
+package assignment1;
 /*
 
 Scenario : Booking an Airbnb
