@@ -228,7 +228,6 @@ public class Assignment3 {
 		
 		System.out.println("Enter a String (reverseString2) :");
 		s = sc.nextLine();
-		System.out.println(s);
 		System.out.println(caseTest.reverseString2(s));
 		System.out.println("============================================\n");
 		
