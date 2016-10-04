@@ -21,14 +21,16 @@ public class Stack {
 		System.out.println("Push " + num + " ......." + "The length is " + getLength());
 	}
 	
-	public void pop(){
+	public int pop(){
 		if(list.isEmpty()){
 			System.out.println("The Stack is empty. You can't pop any more.");
-			return;
+			return 0;
 		}
+		
 		int lastIndex = getLength() - 1;
-		System.out.println("Pop one element. The number is : " + list.get(lastIndex));
+		int popValue = (int)list.get(lastIndex);
 		list.remove(lastIndex);
+		return popValue;
 	}
 	
 	public int getLength(){
