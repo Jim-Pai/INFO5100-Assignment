@@ -2,7 +2,7 @@ package assignment4;
 
 public class Driver {
 
-	String name;
+	private String name;
 	private Car car = null;
 	
 	public Driver(String name){
@@ -14,7 +14,7 @@ public class Driver {
 	}
 	
 	public void buyNewCar(Color color, String brand){
-		car = new Car(color, brand);
+		car = new Car(0, color, brand);
 	}
 	
 	public void addGas(double amount){
