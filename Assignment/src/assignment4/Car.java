@@ -1,7 +1,8 @@
 package assignment4;
 
 public class Car {
-
+	
+	private static final double GAS_COST_RATE = 2;
 	private double gasAmount;
 	private Color color;
 	private String brand;
@@ -12,9 +13,9 @@ public class Car {
 	}
 	
 	public Car(double gasAmount, Color color, String brand){
+		this.gasAmount = gasAmount;
 		this.color = color;
 		this.brand = brand;
-		this.gasAmount = gasAmount;
 		System.out.println("You got a " + this.brand + " car, and the color is " + this.color);
 	}
 	// Getter
@@ -63,7 +64,7 @@ public class Car {
 		System.out.println("The car is running......");
 		
 		while(getGasLevel() > 0){
-			useGas(2);
+			useGas(GAS_COST_RATE);
 		}
 	}
 	
