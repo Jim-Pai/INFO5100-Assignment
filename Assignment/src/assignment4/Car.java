@@ -29,6 +29,10 @@ public class Car {
 	public String getBrand(){
 		return this.brand;
 	}
+	
+	public GasTank getGasTank(){
+		return this.gasTank;
+	}
 	// End of getter
 	// Setter
 	public void setPlateNumber(String plateNumber) {
@@ -43,9 +47,6 @@ public class Car {
 		this.brand = brand;
 	}
 	// End of setter
-	public void addGas(double amount){
-		gasTank.addGas(amount);;
-	}
 	
 	public void run(){
 		System.out.println("The car is running......");

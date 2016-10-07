@@ -19,7 +19,7 @@ public class Driver {
 			return;
 		}
 			
-		car.addGas(amount);
+		car.getGasTank().addGas(amount);
 	}
 	
 	public void driveCar(){
