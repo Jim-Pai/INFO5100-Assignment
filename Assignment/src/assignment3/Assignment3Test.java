@@ -40,7 +40,7 @@ public class Assignment3Test {
 	public void testPascalsTriangle(){
 		int length = 5;
 		int[][] test = {{1, 0, 0 ,0 ,0}, {1, 1, 0 ,0 ,0}, {1, 2, 1 ,0 ,0}, {1, 3, 3 ,1 ,0}, {1, 4, 6 ,4 ,1}};
-		int[][] pascals = a3.generatePascalsTriangle(length);
+		int[][] pascals = a3.generatePascalsTriangle(5);
 		assertArrayEquals(test, pascals);
 	}
 	
