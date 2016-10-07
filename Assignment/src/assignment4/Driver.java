@@ -9,12 +9,8 @@ public class Driver {
 		this.name = name;
 	}
 	
-	public void buyNewCar(){
-		car = new Car();
-	}
-	
-	public void buyNewCar(Color color, String brand){
-		car = new Car(0, color, brand);
+	public void buyNewCar(String plateNumber, Color color, String brand){
+		car = new Car(plateNumber, color, brand);
 	}
 	
 	public void addGas(double amount){

@@ -3,24 +3,23 @@ package assignment4;
 public class Car {
 	
 	private static final double GAS_COST_RATE = 2;
-	private double gasAmount;
+	private GasTank gasTank;
+	private String plateNumber;
 	private Color color;
 	private String brand;
 	
 	// Constructors
-	public Car(){
-		this(0, Color.WHITE, "Toyota");
-	}
-	
-	public Car(double gasAmount, Color color, String brand){
-		this.gasAmount = gasAmount;
+	public Car(String plateNumber, Color color, String brand){
+		this.plateNumber = plateNumber;
 		this.color = color;
 		this.brand = brand;
+		gasTank = new GasTank();
 		System.out.println("You got a " + this.brand + " car, and the color is " + this.color);
+		System.out.println("Plate Number is " + plateNumber);
 	}
 	// Getter
-	public double getGasLevel() {
-		return this.gasAmount;
+	public String getPlateNumber() {
+		return this.plateNumber;
 	}
 	
 	public Color getColor(){
@@ -32,8 +31,8 @@ public class Car {
 	}
 	// End of getter
 	// Setter
-	public void setGasLevel(double amount) {
-		this.gasAmount = amount;
+	public void setPlateNumber(String plateNumber) {
+		this.plateNumber = plateNumber;
 	}
 	
 	public void setColor(Color color){
@@ -45,27 +44,17 @@ public class Car {
 	}
 	// End of setter
 	public void addGas(double amount){
-		this.gasAmount += amount;
-	}
-	
-	public void useGas(double amount){
-		if(this.gasAmount > amount){
-			this.gasAmount -= amount;
-			System.out.println("Use " + amount + " gas, and the current gas level is " + getGasLevel() + " .");
-		}
-		else{
-			this.gasAmount = 0;
-			System.out.println("Run out of gas!");
-			stop();
-		}
+		gasTank.addGas(amount);;
 	}
 	
 	public void run(){
 		System.out.println("The car is running......");
 		
-		while(getGasLevel() > 0){
-			useGas(GAS_COST_RATE);
+		while(gasTank.getGasLevel() > 0){
+			gasTank.useGas(GAS_COST_RATE);
 		}
+		
+		stop();
 	}
 	
 	public void stop(){

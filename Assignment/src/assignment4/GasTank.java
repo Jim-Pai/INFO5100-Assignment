@@ -15,6 +15,7 @@ public class GasTank {
 	public void useGas(double amount){
 		if(this.amount > amount){
 			this.amount -= amount;
+			System.out.println("Use " + amount + " gas, and the current gas level is " + getGasLevel() + " .");
 		}
 		else{
 			this.amount = 0;
