@@ -13,16 +13,6 @@ public class Assignment3Test {
 	
 	private Assignment3 a3 = new Assignment3();
 	private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-
-	@Before
-	public void setUpStreams() {
-	    System.setOut(new PrintStream(outContent));
-	}
-	
-	@After
-	public void cleanUpStreams() {
-	    System.setOut(null);
-	}
 	
 	@Test
 	public void testFindPowerOfThree() { 
@@ -37,26 +27,21 @@ public class Assignment3Test {
 	
 	@Test
 	public void testPrintNumbers(){
+		System.setOut(new PrintStream(outContent));
 		a3.printNumbers(4);
 		assertEquals("0 2 4 6 \n", outContent.toString());
 		outContent.reset();
 		a3.printNumbers(3);
 		assertEquals("1 3 5 \n", outContent.toString());
+		System.setOut(null);
 	}
 	
 	@Test
 	public void testPascalsTriangle(){
-		int[] line1 = {1, 0, 0 ,0 ,0};
-		int[] line2 = {1, 1, 0 ,0 ,0};
-		int[] line3 = {1, 2, 1 ,0 ,0};
-		int[] line4 = {1, 3, 3 ,1 ,0};
-		int[] line5 = {1, 4, 6 ,4 ,1};
-		int[][] pascals = a3.generatePascalsTriangle(5);
-		assertArrayEquals(line1, pascals[0]);
-		assertArrayEquals(line2, pascals[1]);
-		assertArrayEquals(line3, pascals[2]);
-		assertArrayEquals(line4, pascals[3]);
-		assertArrayEquals(line5, pascals[4]);
+		int length = 5;
+		int[][] test = {{1, 0, 0 ,0 ,0}, {1, 1, 0 ,0 ,0}, {1, 2, 1 ,0 ,0}, {1, 3, 3 ,1 ,0}, {1, 4, 6 ,4 ,1}};
+		int[][] pascals = a3.generatePascalsTriangle(length);
+		assertArrayEquals(test, pascals);
 	}
 	
 	@Test
