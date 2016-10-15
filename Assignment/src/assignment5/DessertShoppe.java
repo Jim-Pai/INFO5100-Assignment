@@ -35,7 +35,7 @@ public class DessertShoppe {
 		
 		while(nameLength > 0){
 			String lineContent = name.substring(startIndex, endIndex);
-			if(lineContent.contains("\n")){
+			if(lineContent.contains("\n")){ // the name of sundae contains "\n" following "with".
 				endIndex = lineContent.indexOf("\n") + 1;
 				lineContent = name.substring(startIndex, endIndex);
 			}

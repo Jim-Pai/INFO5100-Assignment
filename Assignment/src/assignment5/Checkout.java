@@ -57,17 +57,20 @@ public class Checkout {
 			receipt.append(dessert.toString());
 		}
 		receipt.append("\n");
+		// The line of Tax
 		String Title = "Tax";
+		String totalTax = DessertShoppe.cents2dollarsAndCents(totalTax());
 		int spaceNum = DessertShoppe.maxSizeOfItemName - Title.length() 
-						+ DessertShoppe.widthDisplayCost - DessertShoppe.cents2dollarsAndCents(totalTax()).length();
+						+ DessertShoppe.widthDisplayCost - totalTax.length();
 		receipt.append(Title + DessertShoppe.mutipleSpace(spaceNum));
-		receipt.append(DessertShoppe.cents2dollarsAndCents(totalTax()) + "\n");
-		
+		receipt.append(totalTax + "\n");
+		// The line of Total Cost
 		Title = "Total Cost";
+		String totalCostAndTax = DessertShoppe.cents2dollarsAndCents(totalCost() + totalTax());
 		spaceNum = DessertShoppe.maxSizeOfItemName - Title.length() 
-					+ DessertShoppe.widthDisplayCost - DessertShoppe.cents2dollarsAndCents(totalCost()).length();
+					+ DessertShoppe.widthDisplayCost - totalCostAndTax.length();
 		receipt.append(Title + DessertShoppe.mutipleSpace(spaceNum));
-		receipt.append(DessertShoppe.cents2dollarsAndCents(totalCost() + totalTax()) + "\n");
+		receipt.append(totalCostAndTax + "\n");
 		
 		return receipt.toString();
 	}
