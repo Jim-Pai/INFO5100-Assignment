@@ -28,31 +28,28 @@ public class DessertShoppe {
 	public static String receiptDetailFormatter(String name, int cost){
 		StringBuffer stringBuffer = new StringBuffer();
 		
-		int remainder = name.length() % maxSizeOfItemName;
-		int line = name.length() / maxSizeOfItemName;
-		if(remainder > 0)
-			line++;
-		
+		int nameLength = name.length();
+		int remainderOfLastLine = 0;
 		int startIndex = 0;
-		int endIndex = name.length() > maxSizeOfItemName ? maxSizeOfItemName - 1 : name.length();//why
+		int endIndex = nameLength > maxSizeOfItemName ? maxSizeOfItemName : nameLength;
 		
-		for(int i = 0; i < line; i++){
+		while(nameLength > 0){
 			String lineContent = name.substring(startIndex, endIndex);
 			if(lineContent.contains("\n")){
-				endIndex = lineContent.indexOf("\n");
+				endIndex = lineContent.indexOf("\n") + 1;
 				lineContent = name.substring(startIndex, endIndex);
-				if(i == line - 2)
-					remainder = name.length() - endIndex - 1;
+			}
+			else if(nameLength - lineContent.length() > 0){ // not yet reach the end of String
+				lineContent += "\n";
 			}
 			stringBuffer.append(lineContent);
-			startIndex = endIndex + 1;
-			endIndex = (i == line - 2) ? endIndex + name.length() - startIndex : endIndex + maxSizeOfItemName;
-			endIndex++;//why
-			if(i != line - 1)
-				stringBuffer.append("\n");
+			remainderOfLastLine = nameLength;
+			nameLength -= lineContent.length();
+			startIndex = endIndex;
+			endIndex = nameLength > maxSizeOfItemName ? startIndex + maxSizeOfItemName : startIndex + nameLength;
 		}
 		
-		int spaceLeft = maxSizeOfItemName - remainder;
+		int spaceLeft = maxSizeOfItemName - remainderOfLastLine;
 		int spaceRight = widthDisplayCost - cents2dollarsAndCents(cost).length();
 		int spaceNumber = spaceLeft + spaceRight;
 		stringBuffer.append(mutipleSpace(spaceNumber));
