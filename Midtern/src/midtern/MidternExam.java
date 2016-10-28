@@ -117,6 +117,8 @@ public class MidternExam {
 		int count = 0;
 		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 		// initialized hash map, calculate margin of each number and target then store it in hashmap.
+		// key : number   
+		// value : margin between number and target
 		for(int i = 0; i < nums.length; i++){
 			map.put(nums[i], target - nums[i]);
 		}
