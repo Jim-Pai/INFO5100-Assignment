@@ -1,5 +1,7 @@
 package midtern;
 
+import java.util.HashMap;
+
 public class MidternExam {
 	/*
 	 * 1)
@@ -109,11 +111,23 @@ public class MidternExam {
 	}
 	
 	/*
-	 * Bonus O(n) method (not yet finished)
+	 * Bonus O(n) method
 	 * */
 	public int twoSumII(int[] nums, int target) {
 		int count = 0;
+		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+		// initialized hash map, calculate margin of each number and target then store it in hashmap.
+		for(int i = 0; i < nums.length; i++){
+			map.put(nums[i], target - nums[i]);
+		}
 		
+		for(int i = 0; i < map.size(); i++){
+			int margin = map.get(nums[i]);
+			if(map.containsKey(margin) && nums[i] != margin){ //no duplicates, so nums[i] can not be equal to margin
+				map.remove(nums[i]);
+				count++;
+			}
+		}
 	
 		return count;
 	}
