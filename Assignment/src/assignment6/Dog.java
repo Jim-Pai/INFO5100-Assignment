@@ -32,15 +32,10 @@ public class Dog extends Pet implements Boardable{
 		time.clear();
 		time.set(year, month, day);
 		
-		if(time.after(boardStart) && time.before(boardEnd)){
-			return true;
-		}
-		else if(time.equals(boardStart) || time.equals(boardEnd)){
-			return true;
-		}
-		else{
+		if(time.before(boardStart) || time.after(boardEnd))
 			return false;
-		}
+		else
+			return true;
 	}
 	
 	public String toString() {
