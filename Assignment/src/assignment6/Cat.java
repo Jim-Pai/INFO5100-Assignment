@@ -1,10 +1,11 @@
 package assignment6;
 
+import java.util.GregorianCalendar;
+
 public class Cat extends Pet implements Boardable{
 	private String hairLength;
-	// Inconvenient way to deal with date
-	private int boardStartMonth, boardStartDay, boardStartYear = 0;
-	private int boardEndMonth, boardEndDay, boardEndYear = 0;
+	private GregorianCalendar boardStart = new GregorianCalendar();
+	private GregorianCalendar boardEnd = new GregorianCalendar();
 	
 	public Cat(String name, String ownerName, String color, String hairLength) {
 		super(name, ownerName, color);
@@ -16,43 +17,29 @@ public class Cat extends Pet implements Boardable{
 	}
 	
 	public void setBoardStart(int month, int day, int year){
-		boardStartMonth = month;
-		boardStartDay = day;
-		boardStartYear = year;
+		boardStart.clear();
+		boardStart.set(year, month, day);
 	}
 	
 	public void setBoardEnd(int month, int day, int year){
-		boardEndMonth = month;
-		boardEndDay = day;
-		boardEndYear = year;
+		boardEnd.clear();
+		boardEnd.set(year, month, day);
 	}
 	
 	public boolean boarding(int month, int day, int year){
-		if(year > boardStartYear && year < boardEndYear){
+		GregorianCalendar time = new GregorianCalendar();
+		time.clear();
+		time.set(year, month, day);
+		
+		if(time.after(boardStart) && time.before(boardEnd)){
 			return true;
 		}
-		else if(year == boardStartYear){
-			if(month > boardStartMonth){
-				return true;
-			}
-			else if(month == boardStartMonth){
-				if(day >= boardStartDay){
-					return true;
-				}
-			}
+		else if(time.equals(boardStart) || time.equals(boardEnd)){
+			return true;
 		}
-		else if(year == boardEndYear){
-			if(month < boardEndMonth){
-				return true;
-			}
-			else if(month == boardEndMonth){
-				if(day <= boardEndDay){
-					return true;
-				}
-			}
+		else{
+			return false;
 		}
-		
-		return false;
 	}
 	
 	public String toString() {
